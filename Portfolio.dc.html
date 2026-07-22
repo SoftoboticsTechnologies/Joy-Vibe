@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:#2b2440;background:#fffdfb;}
+  a{color:#7C4DFF;text-decoration:none;} a:hover{color:#FF5FA2;}
+</style>
+</helmet>
+<div style="overflow-x:hidden;">
+<dc-import name="SiteNav" active="portfolio" hint-size="100%,72px" style="position:sticky;top:0;z-index:50;"></dc-import>
+
+<header style="padding:clamp(50px,6vw,80px) clamp(20px,5vw,64px) clamp(40px,5vw,56px);background:radial-gradient(120% 100% at 50% 0%,#fdf6ff,#f4fbff 60%,#fff2f8);text-align:center;">
+  <span style="font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#FF5FA2;">Portfolio</span>
+  <h1 style="font-family:'Poppins';font-weight:800;font-size:clamp(36px,5.5vw,60px);letter-spacing:-1.5px;margin:12px 0 0;">Moments We've Created</h1>
+  <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.7;color:#5c5674;max-width:640px;margin:18px auto 0;">A glimpse into the celebrations we've designed, from balloon backdrops to golden-lit receptions and fairy-light lounges.</p>
+</header>
+
+<section style="padding:clamp(30px,4vw,50px) clamp(20px,5vw,64px) clamp(40px,6vw,70px);">
+  <div style="max-width:1200px;margin:0 auto;columns:3;column-gap:18px;">
+    <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
+      <div style="break-inside:avoid;margin-bottom:18px;border-radius:22px;overflow:hidden;border:4px solid #fff;box-shadow:0 14px 34px rgba(124,77,255,.16);background:{{ g.bg }};display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:24px;aspect-ratio:{{ g.ratio }};">
+        <span style="font-size:44px;">{{ g.icon }}</span>
+        <span style="font-family:monospace;font-size:11px;color:#6b6390;text-align:center;background:rgba(255,255,255,.7);padding:5px 10px;border-radius:8px;">{{ g.label }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="padding:clamp(50px,7vw,90px) clamp(20px,5vw,64px);background:linear-gradient(180deg,#fffaf4,#fdf6ff);">
+  <div style="max-width:1150px;margin:0 auto;text-align:center;">
+    <span style="font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#FF5FA2;">Testimonials</span>
+    <h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(26px,3.6vw,40px);letter-spacing:-1px;margin:12px 0 0;">What Families Say</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:36px;text-align:left;">
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+        <div style="background:#fff;border-radius:22px;padding:28px;box-shadow:0 12px 30px rgba(124,77,255,.1);border:1px solid rgba(124,77,255,.06);">
+          <div style="color:#FFA726;font-size:18px;letter-spacing:2px;">★★★★★</div>
+          <p style="font-size:15px;line-height:1.7;color:#4a4360;margin:14px 0 0;">"{{ t.quote }}"</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:20px;">
+            <span style="width:44px;height:44px;border-radius:50%;background:{{ t.bg }};display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;color:#fff;">{{ t.initial }}</span>
+            <div><div style="font-family:'Poppins';font-weight:700;font-size:15px;color:#2b2440;">{{ t.name }}</div><div style="font-size:12px;color:#7a7398;">{{ t.event }}</div></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <a href="Contact.dc.html" style="display:inline-block;margin-top:36px;font-family:'Poppins';font-weight:600;font-size:16px;color:#fff;padding:15px 30px;border-radius:20px;background:linear-gradient(135deg,#FF5FA2,#FFA726,#7C4DFF);box-shadow:0 12px 28px rgba(255,95,162,.4);">Let's Create Yours →</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      gallery: [
+        { icon:"🎈", label:"balloon backdrop décor", ratio:"3/4", bg:"repeating-linear-gradient(45deg,#fbe9f2,#fbe9f2 12px,#f3e6ff 12px,#f3e6ff 24px)" },
+        { icon:"✨", label:"golden-lit reception setup", ratio:"4/3", bg:"repeating-linear-gradient(45deg,#fff4e0,#fff4e0 12px,#ffe9f2 12px,#ffe9f2 24px)" },
+        { icon:"🌸", label:"outdoor fairy-light lounge", ratio:"1/1", bg:"repeating-linear-gradient(45deg,#e9f7ec,#e9f7ec 12px,#f3e6ff 12px,#f3e6ff 24px)" },
+        { icon:"🎂", label:"floral cake table", ratio:"4/5", bg:"repeating-linear-gradient(45deg,#fbe9f2,#fbe9f2 12px,#fff4e0 12px,#fff4e0 24px)" },
+        { icon:"🎊", label:"themed kids party", ratio:"1/1", bg:"repeating-linear-gradient(45deg,#f3e6ff,#f3e6ff 12px,#e9f7ec 12px,#e9f7ec 24px)" },
+        { icon:"💐", label:"anniversary stage décor", ratio:"3/4", bg:"repeating-linear-gradient(45deg,#fff4e0,#fff4e0 12px,#f3e6ff 12px,#f3e6ff 24px)" },
+        { icon:"🥂", label:"engagement setup", ratio:"4/3", bg:"repeating-linear-gradient(45deg,#ffe9f2,#ffe9f2 12px,#f3e6ff 12px,#f3e6ff 24px)" },
+        { icon:"🎉", label:"festive celebration", ratio:"1/1", bg:"repeating-linear-gradient(45deg,#e9f7ec,#e9f7ec 12px,#fff4e0 12px,#fff4e0 24px)" },
+      ],
+      testimonials: [
+        { quote:"JoyVibe made my daughter's first birthday absolutely magical. Every detail was perfect and stress-free!", name:"Priya Sharma", event:"Birthday Party", initial:"P", bg:"linear-gradient(135deg,#FF5FA2,#7C4DFF)" },
+        { quote:"The décor, food and entertainment were beyond our expectations. Our guests are still talking about it!", name:"Rahul Mehta", event:"Anniversary", initial:"R", bg:"linear-gradient(135deg,#FFA726,#FF5FA2)" },
+        { quote:"Professional, warm and creative. They truly handled everything so we could just enjoy the day.", name:"Anjali Rao", event:"Baby Shower", initial:"A", bg:"linear-gradient(135deg,#43A047,#7C4DFF)" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
