@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}</style>
+</helmet>
+
+<sc-if value="{{ isBadge }}" hint-placeholder-val="{{ true }}">
+<svg viewBox="0 0 240 232" style="display:block;width:100%;height:auto;overflow:visible;" aria-label="JoyVibe">
+  <defs>
+    <filter id="jv-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#4A2545" flood-opacity="0.18"/>
+    </filter>
+    <path id="jv-tag" d="M 20.4,87.7 A 106,106 0 0 1 219.6,87.7" fill="none"></path>
+  </defs>
+  <g filter="url(#jv-shadow)">
+    <circle cx="120" cy="124" r="88" fill="#fff"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#FF6B4A" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(0 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#7C4DFF" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(51 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#43A047" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(102 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#26A69A" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(153 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#4FC3E8" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(204 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#FFD54F" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(255 120 124)"></circle>
+    <circle cx="120" cy="124" r="82" fill="none" stroke="#FF9E4F" stroke-width="24" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(306 120 124)"></circle>
+    <circle cx="120" cy="124" r="60" fill="#fff"></circle>
+  </g>
+  <text x="120" y="140" text-anchor="middle" font-family="Pacifico" font-size="42" fill="#4A2545" stroke="#fff" stroke-width="4.5" paint-order="stroke" style="stroke-linejoin:round;">JoyVibe</text>
+  <text font-family="Oswald" font-weight="700" font-size="13" letter-spacing="0.5" fill="#1A2340">
+    <textPath href="#jv-tag" startOffset="50%" text-anchor="middle">"Stress-Free Celebrations, Beautiful Memories"</textPath>
+  </text>
+  <g fill="none">
+    <path d="M18 44 l0 12 M12 50 l12 0" stroke="#FFD54F" stroke-width="2.4" stroke-linecap="round"></path>
+    <circle cx="212" cy="52" r="3" fill="#26A69A"></circle>
+    <rect x="196" y="30" width="6" height="6" rx="1.6" fill="#7C4DFF" transform="rotate(20 199 33)"></rect>
+    <path d="M222 150 l0 10 M217 155 l10 0" stroke="#FF6B4A" stroke-width="2.4" stroke-linecap="round"></path>
+    <circle cx="22" cy="150" r="3" fill="#4FC3E8"></circle>
+    <rect x="30" y="20" width="5.5" height="5.5" rx="1.5" fill="#43A047" transform="rotate(-15 33 23)"></rect>
+  </g>
+</svg>
+</sc-if>
+
+<sc-if value="{{ isLockup }}" hint-placeholder-val="{{ false }}">
+<span style="display:inline-flex;align-items:center;gap:11px;">
+  <svg viewBox="0 0 200 200" width="46" height="46" style="display:block;flex:none;" aria-label="JoyVibe">
+    <circle cx="100" cy="100" r="82" fill="#fff"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#FF6B4A" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(0 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#7C4DFF" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(51 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#43A047" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(102 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#26A69A" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(153 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#4FC3E8" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(204 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#FFD54F" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(255 100 100)"></circle>
+    <circle cx="100" cy="100" r="76" fill="none" stroke="#FF9E4F" stroke-width="22" stroke-linecap="round" pathLength="360" stroke-dasharray="38 360" transform="rotate(306 100 100)"></circle>
+    <circle cx="100" cy="100" r="52" fill="#fff"></circle>
+  </svg>
+  <span style="font-family:'Pacifico',cursive;font-size:26px;line-height:1;color:#4A2545;position:relative;top:2px;">JoyVibe</span>
+</span>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:260,&quot;height&quot;:250},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;badge&quot;,&quot;lockup&quot;],&quot;default&quot;:&quot;badge&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant || "badge";
+    return { isBadge: v === "badge", isLockup: v === "lockup" };
+  }
+}
+</script>
+</body>
+</html>
