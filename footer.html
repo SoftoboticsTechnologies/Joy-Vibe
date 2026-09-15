@@ -18,6 +18,19 @@
   .jv-wa-tip::after{content:"";position:absolute;right:-5px;top:50%;transform:translateY(-50%) rotate(45deg);width:10px;height:10px;background:#1f1a32;border-radius:2px;}
   .jv-wa:hover .jv-wa-tip{opacity:1;transform:translateY(-50%) translateX(0);}
   @media (max-width:640px){.jv-wa{bottom:84px;}}
+  .jv-footer-columns{max-width:1200px;margin:0 auto;padding:50px clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;}
+  .jv-footer-bottom{max-width:1200px;margin:36px auto 0;padding:22px clamp(20px,5vw,64px) 0;}
+  @media (max-width:760px){
+    .jv-footer-columns{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:38px;}
+    .jv-footer-brand{grid-column:1/-1;}
+  }
+  @media (max-width:480px){
+    .jv-footer-columns{grid-template-columns:1fr;gap:30px;padding:34px 20px 0;}
+    .jv-footer-brand{grid-column:auto;}
+    .jv-footer-bottom{margin-top:30px;padding:18px 20px 0;line-height:1.6;}
+    .jv-wa{right:16px;bottom:76px;width:56px;height:56px;}
+    .jv-wa-tip{display:none;}
+  }
 </style>
 </helmet>
 <a class="jv-wa" href="https://wa.me/918050034521?text=Hi%20JoyVibe%2C%20I%27d%20like%20to%20know%20more%20about%20your%20event%20packages!" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
@@ -26,8 +39,8 @@
 </a>
 <footer style="background:#1f1a32;color:#d9d3ee;padding:0 0 30px;font-family:'Inter',sans-serif;">
   <div style="height:8px;background:linear-gradient(90deg,#FF5FA2,#FFA726,#FFD54F,#43A047,#7C4DFF);"></div>
-  <div style="max-width:1200px;margin:0 auto;padding:50px clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;">
-    <div>
+  <div class="jv-footer-columns">
+    <div class="jv-footer-brand">
       <div style="background:#fff;border-radius:22px;padding:14px;width:170px;box-shadow:0 12px 30px rgba(0,0,0,.28);">
         <dc-import name="JoyVibeLogo" variant="badge" hint-size="142px,140px"></dc-import>
       </div>
@@ -69,7 +82,7 @@
       </div>
     </div>
   </div>
-  <div style="max-width:1200px;margin:36px auto 0;padding:22px clamp(20px,5vw,64px) 0;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8a83ab;">© 2026 JoyVibe. All rights reserved. Let's Celebrate! 🎉</div>
+  <div class="jv-footer-bottom" style="border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8a83ab;">© 2026 JoyVibe. All rights reserved. Let's Celebrate! 🎉</div>
 </footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:360}}"></script>

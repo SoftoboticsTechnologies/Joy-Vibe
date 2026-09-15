@@ -16,6 +16,18 @@
   @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
   @keyframes floatY2{0%,100%{transform:translateY(0);}50%{transform:translateY(-26px);}}
   @keyframes glow{0%,100%{filter:drop-shadow(0 0 8px rgba(255,95,162,.5));}50%{filter:drop-shadow(0 0 22px rgba(124,77,255,.7));}}
+  @media (max-width:700px){
+    .jv-home-hero{grid-template-columns:1fr!important;text-align:center;}
+    .jv-home-hero p{margin-left:auto!important;margin-right:auto!important;}
+    .jv-home-actions{justify-content:center;}
+    .jv-home-badge{left:50%!important;transform:translateX(-50%);white-space:nowrap;}
+    .jv-section-heading{align-items:flex-start!important;}
+  }
+  @media (max-width:480px){
+    .jv-home-hero h1{font-size:clamp(42px,13vw,64px)!important;}
+    .jv-home-actions a{width:100%;text-align:center;}
+    .jv-testimonials{grid-template-columns:1fr!important;}
+  }
 </style>
 </helmet>
 <div style="overflow-x:hidden;">
@@ -25,20 +37,20 @@
   <span style="position:absolute;top:6%;right:38%;font-size:46px;animation:floatY 6s ease-in-out infinite;">🎈</span>
   <span style="position:absolute;top:22%;right:9%;font-size:54px;animation:floatY2 7s ease-in-out infinite;">🎈</span>
   <span style="position:absolute;bottom:20%;right:3%;font-size:34px;animation:floatY2 8s ease-in-out infinite;">🎉</span>
-  <div style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,64px);align-items:center;max-width:1240px;margin:0 auto;">
+  <div class="jv-home-hero" style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,64px);align-items:center;max-width:1240px;margin:0 auto;">
     <div>
       <span style="display:inline-block;font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#7C4DFF;background:rgba(124,77,255,.1);padding:7px 16px;border-radius:20px;">✨ Celebration Planners</span>
       <h1 style="font-family:'Poppins';font-weight:800;font-size:clamp(48px,8vw,88px);line-height:.98;margin:20px 0 0;letter-spacing:-2px;background:linear-gradient(115deg,#FF5FA2,#FFA726 45%,#7C4DFF);-webkit-background-clip:text;background-clip:text;color:transparent;animation:glow 5s ease-in-out infinite;">Let's Celebrate</h1>
       <p style="font-family:'Poppins';font-weight:600;font-size:clamp(18px,2.4vw,24px);color:#2b2440;margin:14px 0 0;">Stress Free Celebrations, Beautiful Memories</p>
       <p style="font-size:clamp(15px,1.6vw,17px);line-height:1.7;color:#5c5674;max-width:520px;margin:18px 0 0;">We plan, design and manage beautiful celebrations with creative décor, fun entertainment, delicious food and memorable experiences, all planned with love and attention to detail.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;">
+      <div class="jv-home-actions" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;">
         <a href="contact.html" style="font-family:'Poppins';font-weight:600;font-size:16px;color:#fff;padding:15px 28px;border-radius:20px;background:linear-gradient(135deg,#FF5FA2,#FFA726,#7C4DFF);box-shadow:0 12px 28px rgba(255,95,162,.4);">Book Your Celebration Today!</a>
         <a href="portfolio.html" style="font-family:'Poppins';font-weight:600;font-size:16px;color:#7C4DFF;padding:15px 28px;border-radius:20px;background:#fff;border:2px solid rgba(124,77,255,.2);box-shadow:0 8px 20px rgba(124,77,255,.1);">View Our Work</a>
       </div>
     </div>
     <div style="position:relative;display:flex;justify-content:center;">
       <img src="joyvibe-logo-transparent.png" alt="JoyVibe — Stress-Free Celebrations, Beautiful Memories" style="display:block;width:min(440px,100%);height:auto;">
-      <div style="position:absolute;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);bottom:-8px;left:-4px;background:rgba(255,255,255,.9);border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:12px;">
+      <div class="jv-home-badge" style="position:absolute;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);bottom:-8px;left:-4px;background:rgba(255,255,255,.9);border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:12px;">
         <span style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#FFD54F,#FFA726);display:flex;align-items:center;justify-content:center;font-size:22px;">⭐</span>
         <div><div style="font-family:'Poppins';font-weight:700;font-size:16px;color:#2b2440;">100+ Families</div><div style="font-size:12px;color:#7a7398;">trust JoyVibe</div></div>
       </div>
@@ -55,7 +67,7 @@
 
 <section style="padding:clamp(40px,6vw,70px) clamp(20px,5vw,64px);background:linear-gradient(180deg,#fdf6ff,#fffaf4);">
   <div style="max-width:1200px;margin:0 auto;">
-    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
+    <div class="jv-section-heading" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
       <div><span style="font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#7C4DFF;">Occasions</span><h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(26px,3.6vw,38px);letter-spacing:-1px;margin:8px 0 0;">We Celebrate Every Occasion</h2></div>
       <a href="occasions.html" style="font-family:'Poppins';font-weight:600;font-size:15px;color:#7C4DFF;">See all occasions →</a>
     </div>
@@ -72,7 +84,7 @@
 
 <section style="padding:clamp(40px,6vw,70px) clamp(20px,5vw,64px);">
   <div style="max-width:1200px;margin:0 auto;">
-    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
+    <div class="jv-section-heading" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
       <div><span style="font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#FF5FA2;">Services</span><h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(26px,3.6vw,38px);letter-spacing:-1px;margin:8px 0 0;">What We Bring to Your Party</h2></div>
       <a href="services.html" style="font-family:'Poppins';font-weight:600;font-size:15px;color:#7C4DFF;">See all services →</a>
     </div>
@@ -106,7 +118,7 @@
   <div style="max-width:1150px;margin:0 auto;text-align:center;">
     <span style="font-family:'Poppins';font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#FF5FA2;">Testimonials</span>
     <h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(26px,3.6vw,40px);letter-spacing:-1px;margin:12px 0 0;">Loved by Happy Families</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:36px;text-align:left;">
+    <div class="jv-testimonials" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:36px;text-align:left;">
       <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
         <div style="background:#fff;border-radius:22px;padding:28px;box-shadow:0 12px 30px rgba(124,77,255,.1);border:1px solid rgba(124,77,255,.06);">
           <div style="color:#FFA726;font-size:18px;letter-spacing:2px;">★★★★★</div>

@@ -13,6 +13,7 @@
   *{box-sizing:border-box;}
   body{margin:0;font-family:'Inter',sans-serif;color:#2b2440;background:#fffdfb;}
   a{color:#7C4DFF;text-decoration:none;} a:hover{color:#FF5FA2;}
+  @media (max-width:700px){.jv-about-intro{grid-template-columns:1fr!important;}.jv-about-photo{max-width:360px;width:100%;margin:0 auto;}.jv-reasons{grid-template-columns:1fr!important;}}
 </style>
 </helmet>
 <div style="overflow-x:hidden;">
@@ -24,7 +25,7 @@
 </header>
 
 <section style="padding:clamp(40px,6vw,70px) clamp(20px,5vw,64px);">
-  <div style="max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;">
+  <div class="jv-about-intro" style="max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;">
     <div>
       <h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px;margin:0;">Planned with love, down to the last detail.</h2>
       <p style="font-size:clamp(15px,1.6vw,17px);line-height:1.8;color:#5c5674;margin:18px 0 0;">We plan, design and manage beautiful celebrations with creative décor, fun entertainment, delicious food and memorable experiences, all planned with love and attention to detail.</p>
@@ -36,7 +37,7 @@
         <span style="font-family:'Poppins';font-weight:600;font-size:14px;color:#FF5FA2;background:rgba(255,95,162,.1);padding:10px 18px;border-radius:20px;">💖 Memorable Experiences</span>
       </div>
     </div>
-    <div style="position:relative;border-radius:26px;overflow:hidden;border:5px solid #fff;box-shadow:0 24px 50px rgba(124,77,255,.2);aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#fbe9f2,#fbe9f2 12px,#f3e6ff 12px,#f3e6ff 24px);">
+    <div class="jv-about-photo" style="position:relative;border-radius:26px;overflow:hidden;border:5px solid #fff;box-shadow:0 24px 50px rgba(124,77,255,.2);aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#fbe9f2,#fbe9f2 12px,#f3e6ff 12px,#f3e6ff 24px);">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
         <span style="font-size:56px;">💐</span>
         <span style="font-family:monospace;font-size:12px;color:#8a7fb0;background:rgba(255,255,255,.7);padding:6px 12px;border-radius:10px;">team / event setup photo</span>
@@ -60,7 +61,7 @@
   <span style="position:absolute;bottom:-30px;left:4%;font-size:120px;opacity:.12;">🎈</span>
   <div style="max-width:1150px;margin:0 auto;position:relative;text-align:center;">
     <h2 style="font-family:'Poppins';font-weight:800;font-size:clamp(28px,4vw,42px);letter-spacing:-1px;margin:0;color:#fff;">Why Families Choose JoyVibe</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:36px;text-align:left;">
+    <div class="jv-reasons" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:36px;text-align:left;">
       <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="6">
         <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:20px;">
           <span style="flex:none;width:40px;height:40px;border-radius:50%;background:#fff;color:#7C4DFF;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;">✔</span>
