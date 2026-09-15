@@ -39,10 +39,15 @@
         <div>
           <div style="font-family:'Poppins';font-weight:700;font-size:20px;color:#2b2440;">Tell us about your event</div>
           <input value="{{ name }}" onInput="{{ setName }}" placeholder="Your Name" style="width:100%;margin-top:16px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;">
+          <input value="{{ email }}" onInput="{{ setEmail }}" placeholder="Your Email" style="width:100%;margin-top:12px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;">
+          <input value="{{ phoneNumber }}" onInput="{{ setPhoneNumber }}" placeholder="Your Phone Number" style="width:100%;margin-top:12px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;">
           <input value="{{ eventType }}" onInput="{{ setEventType }}" placeholder="Event Type (e.g. Birthday Party)" style="width:100%;margin-top:12px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;">
           <input value="{{ date }}" onFocus="{{ dateFocus }}" onBlur="{{ dateBlur }}" onInput="{{ setDate }}" type="{{ dateInputType }}" placeholder="Event Date" style="width:100%;margin-top:12px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;color:#2b2440;">
           <textarea value="{{ message }}" onInput="{{ setMessage }}" placeholder="Tell us more about your celebration…" rows="3" style="width:100%;margin-top:12px;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(124,77,255,.16);font-family:'Inter';font-size:15px;background:#fff;outline:none;resize:vertical;"></textarea>
-          <button type="submit" style="width:100%;margin-top:16px;font-family:'Poppins';font-weight:700;font-size:16px;color:#fff;padding:15px;border:none;border-radius:16px;cursor:pointer;background:linear-gradient(135deg,#FF5FA2,#FFA726,#7C4DFF);box-shadow:0 12px 26px rgba(255,95,162,.4);">Book Your Celebration →</button>
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:12px;font-size:14px;color:#e0455f;">{{ errorMessage }}</div>
+          </sc-if>
+          <button type="submit" disabled="{{ submitting }}" style="width:100%;margin-top:16px;font-family:'Poppins';font-weight:700;font-size:16px;color:#fff;padding:15px;border:none;border-radius:16px;cursor:pointer;background:linear-gradient(135deg,#FF5FA2,#FFA726,#7C4DFF);box-shadow:0 12px 26px rgba(255,95,162,.4);opacity:{{ submitBtnOpacity }};">{{ submitLabel }}</button>
         </div>
       </sc-if>
     </form>
@@ -53,21 +58,55 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+const CONTACT_FORM_ENDPOINT = "https://k5iewetbri.execute-api.ap-south-1.amazonaws.com/prod/contact";
+
 class Component extends DCLogic {
-  state = { name:"", eventType:"", date:"", message:"", submitted:false, dateActive:false };
+  state = {
+    name:"", email:"", phoneNumber:"", eventType:"", date:"", message:"",
+    submitted:false, submitting:false, dateActive:false, errorMessage:"",
+  };
   renderVals() {
     const s = this.state;
     return {
-      name: s.name, eventType: s.eventType, date: s.date, message: s.message,
+      name: s.name, email: s.email, phoneNumber: s.phoneNumber,
+      eventType: s.eventType, date: s.date, message: s.message,
       submitted: s.submitted, notSubmitted: !s.submitted,
+      submitting: s.submitting,
+      submitLabel: s.submitting ? "Sending…" : "Book Your Celebration →",
+      submitBtnOpacity: s.submitting ? "0.7" : "1",
+      hasError: !!s.errorMessage, errorMessage: s.errorMessage,
       dateInputType: (s.dateActive || s.date) ? "date" : "text",
       setName: e => this.setState({ name: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      setPhoneNumber: e => this.setState({ phoneNumber: e.target.value }),
       setEventType: e => this.setState({ eventType: e.target.value }),
       setDate: e => this.setState({ date: e.target.value }),
       setMessage: e => this.setState({ message: e.target.value }),
       dateFocus: () => this.setState({ dateActive: true }),
       dateBlur: () => this.setState({ dateActive: false }),
-      onSubmit: e => { e.preventDefault(); this.setState({ submitted: true }); },
+      onSubmit: async e => {
+        e.preventDefault();
+        if (this.state.submitting) return;
+        this.setState({ submitting: true, errorMessage: "" });
+        try {
+          const res = await fetch(CONTACT_FORM_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              firstName: this.state.name,
+              email: this.state.email,
+              phoneNumber: this.state.phoneNumber,
+              eventType: this.state.eventType,
+              eventDate: this.state.date,
+              message: this.state.message,
+            }),
+          });
+          if (!res.ok) throw new Error("Request failed");
+          this.setState({ submitting: false, submitted: true });
+        } catch (err) {
+          this.setState({ submitting: false, errorMessage: "Something went wrong. Please try again or reach us on WhatsApp." });
+        }
+      },
     };
   }
 }
